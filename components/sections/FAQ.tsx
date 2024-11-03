@@ -78,37 +78,6 @@ export default function FAQ() {
           </article>
         ))}
       </div>
-
-      <div className="mt-12 pt-8 border-t">
-        <h3 className="text-xl font-semibold mb-4 text-foreground">
-          About Our Depop Fee Calculator
-        </h3>
-        <p className="text-foreground/80 mb-4">
-          Our calculator helps Depop sellers accurately estimate their profits and fees. 
-          Whether you&apos;re selling clothes, accessories, or other items, understanding your 
-          costs is crucial for a successful Depop business.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <div>
-            <h4 className="font-medium mb-2 text-foreground">Key Features:</h4>
-            <ul className="list-disc list-inside text-foreground/80 space-y-1">
-              <li>Real-time fee calculations</li>
-              <li>Multi-currency support</li>
-              <li>Shipping cost calculator</li>
-              <li>Profit margin analysis</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-medium mb-2 text-foreground">Why Use Our Calculator:</h4>
-            <ul className="list-disc list-inside text-foreground/80 space-y-1">
-              <li>Updated for 2024</li>
-              <li>Accurate fee structures</li>
-              <li>Easy to use interface</li>
-              <li>Free for all sellers</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </section>
   )
 }
