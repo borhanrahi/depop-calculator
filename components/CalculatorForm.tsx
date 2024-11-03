@@ -77,7 +77,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             value={currency}
             onValueChange={(value: "USD" | "EUR" | "GBP") => setCurrency(value)}
           >
-            <SelectTrigger className='border-primary/20 focus:border-primary'>
+            <SelectTrigger 
+              className='border-primary/20 focus:border-primary'
+              aria-label="Select currency"
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -116,7 +119,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             value={shippingMethod}
             onValueChange={setShippingMethod}
           >
-            <SelectTrigger className='border-primary/20 focus:border-primary'>
+            <SelectTrigger 
+              className='border-primary/20 focus:border-primary'
+              aria-label="Select shipping method"
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -137,7 +143,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
               value={size}
               onValueChange={setSize}
             >
-              <SelectTrigger className='border-primary/20 focus:border-primary'>
+              <SelectTrigger 
+                className='border-primary/20 focus:border-primary'
+                aria-label="Select package size"
+              >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -193,7 +202,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             value={boosted}
             onValueChange={setBoosted}
           >
-            <SelectTrigger className='border-primary/20 focus:border-primary'>
+            <SelectTrigger 
+              className='border-primary/20 focus:border-primary'
+              aria-label="Select boost option"
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -231,7 +243,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             value={paymentMethod}
             onValueChange={(value: "depop" | "paypal") => setPaymentMethod(value)}
           >
-            <SelectTrigger className='border-primary/20 focus:border-primary'>
+            <SelectTrigger 
+              className='border-primary/20 focus:border-primary'
+              aria-label="Select payment method"
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -256,7 +271,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
               value={salesTaxMethod}
               onValueChange={setSalesTaxMethod}
             >
-              <SelectTrigger className='border-primary/20 focus:border-primary'>
+              <SelectTrigger 
+                className='border-primary/20 focus:border-primary'
+                aria-label="Select sales tax calculation method"
+              >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

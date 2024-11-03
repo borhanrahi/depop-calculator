@@ -26,25 +26,25 @@ export default function ResultsTable({ results, currency }: ResultsTableProps) {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
         {/* Key Metrics */}
         <div className='bg-primary/5 rounded-lg p-4 text-center space-y-2'>
-          <h4 className='text-sm font-medium text-muted-foreground'>Revenue</h4>
+          <h3 className='text-sm font-medium text-foreground'>Revenue</h3>
           <p className='text-2xl font-bold'>
             {CURRENCY_SYMBOLS[currency]}
             {results.revenue}
           </p>
         </div>
         <div className='bg-primary/5 rounded-lg p-4 text-center space-y-2'>
-          <h4 className='text-sm font-medium text-muted-foreground'>Net Profit</h4>
+          <h3 className='text-sm font-medium text-foreground'>Net Profit</h3>
           <p className={`text-2xl font-bold ${
-            Number(results.grossProfit) >= 0 ? 'text-green-600' : 'text-red-600'
+            Number(results.grossProfit) >= 0 ? 'text-green-700' : 'text-red-700'
           }`}>
             {CURRENCY_SYMBOLS[currency]}
             {results.grossProfit}
           </p>
         </div>
         <div className='bg-primary/5 rounded-lg p-4 text-center space-y-2'>
-          <h4 className='text-sm font-medium text-muted-foreground'>Profit Margin</h4>
+          <h3 className='text-sm font-medium text-foreground'>Profit Margin</h3>
           <p className={`text-2xl font-bold ${
-            Number(results.profitMargin) >= 0 ? 'text-green-600' : 'text-red-600'
+            Number(results.profitMargin) >= 0 ? 'text-green-700' : 'text-red-700'
           }`}>
             {results.profitMargin}%
           </p>
@@ -52,11 +52,11 @@ export default function ResultsTable({ results, currency }: ResultsTableProps) {
       </div>
 
       <div className='space-y-4'>
-        <h3 className='text-lg font-semibold'>Detailed Breakdown</h3>
+        <h2 className='text-lg font-semibold'>Detailed Breakdown</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2'>
           {/* Costs Section */}
           <div className='space-y-2'>
-            <h4 className='text-sm font-medium text-muted-foreground'>Costs</h4>
+            <h3 className='text-sm font-medium text-foreground'>Costs</h3>
             <div className='space-y-1'>
               <div className='flex justify-between items-center py-1'>
                 <span>Item Cost</span>
@@ -113,7 +113,7 @@ export default function ResultsTable({ results, currency }: ResultsTableProps) {
           <div className='text-center'>
             <p className='text-sm text-muted-foreground'>Markup</p>
             <p className={`text-xl font-semibold ${
-              Number(results.markup) >= 0 ? 'text-green-600' : 'text-red-600'
+              Number(results.markup) >= 0 ? 'text-green-700' : 'text-red-700'
             }`}>
               {results.markup}%
             </p>
