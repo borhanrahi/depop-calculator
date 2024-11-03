@@ -75,7 +75,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body>
+      <head>
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1047850381013366"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className="min-h-screen bg-background">
         {children}
         <Footer />
         <Analytics />
