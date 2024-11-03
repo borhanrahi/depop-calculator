@@ -244,7 +244,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
 
       <div className='border border-primary/20 rounded-lg p-4 space-y-4'>
         <div className='text-center font-semibold bg-primary text-primary-foreground py-2 rounded'>
-          Sales tax
+          Sales tax (optional)
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           <div className='space-y-2'>

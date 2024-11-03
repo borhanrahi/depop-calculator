@@ -84,12 +84,9 @@ export default function DepopCalculator() {
         <div className='flex items-center justify-center gap-2 mb-2'>
           <Flag className='w-8 h-8' />
           <CardTitle className='text-3xl sm:text-4xl font-bold'>
-            Depop Fee Calculator
+            Calculate Your Depop Profit
           </CardTitle>
         </div>
-        <CardDescription className='text-xl text-primary-foreground/80'>
-          Calculate Depop fees & profit in multiple currencies!
-        </CardDescription>
         <CardDescription className='text-primary-foreground/60'>
           Up-to-date as of as of November 02, 2024
         </CardDescription>

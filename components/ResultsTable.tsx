@@ -119,7 +119,7 @@ export default function ResultsTable({ results, currency }: ResultsTableProps) {
             </p>
           </div>
           <div className='text-center'>
-            <p className='text-sm text-muted-foreground'>Sales Tax</p>
+            <p className='text-sm text-muted-foreground'>Sales Tax </p>
             <p className='text-xl font-semibold'>
               {CURRENCY_SYMBOLS[currency]}{results.salesTax}
             </p>
