@@ -13,12 +13,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: "Depop Calculator | Free Fee & Profit Calculator 2024",
-    template: "%s | Depop Calculator"
+  title: "Depop Calculator | Free Fee & Profit Calculator 2024",
+  description: "Calculate Depop fees, profits, and shipping costs instantly with our free calculator. Updated for 2024 with multi-currency support.",
+  openGraph: {
+    title: "Depop Calculator 2024",
+    description: "Free calculator for Depop sellers to calculate fees and profits",
+    url: siteConfig.url,
+    siteName: "Depop Calculator",
+    images: [
+      {
+        url: `${siteConfig.url}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Depop Calculator Preview"
+      }
+    ],
+    locale: "en_US",
+    type: "website",
   },
-  description: siteConfig.description,
+  twitter: {
+    card: "summary_large_image",
+    title: "Depop Calculator 2024",
+    description: "Free calculator for Depop sellers to calculate fees and profits",
+    images: ["/opengraph-image"],
+  },
+  metadataBase: new URL(siteConfig.url),
   keywords: siteConfig.keywords,
   icons: {
     icon: '/favicon.png'
@@ -29,19 +48,6 @@ export const metadata: Metadata = {
       'preconnect https://fonts.googleapis.com',
       'dns-prefetch https://fonts.googleapis.com'
     ]
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: "Depop Calculator - Most Accurate Fee Calculator 2024",
-    description: siteConfig.description,
-    siteName: siteConfig.name
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Depop Calculator - Free Fee Calculator 2024",
-    description: siteConfig.description
   },
   robots: {
     index: true,
