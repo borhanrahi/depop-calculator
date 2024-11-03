@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.png'
   },
-  // Add preconnect and dns-prefetch
   other: {
+    'google-adsense-account': 'ca-pub-1047850381013366',
     link: [
       'preconnect https://fonts.googleapis.com',
       'dns-prefetch https://fonts.googleapis.com'
