@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { siteConfig } from './metadata';
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 // Optimize font loading
 const inter = Inter({ 
@@ -74,17 +75,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <head>
-        {/* Add preload for critical resources */}
-        <link 
-          rel="preload" 
-          href="/favicon.png" 
-          as="image"
-        />
-      </head>
       <body>
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
