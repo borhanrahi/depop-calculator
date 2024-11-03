@@ -1,7 +1,7 @@
 export const siteConfig = {
   url: 'https://depop-calculator.vercel.app',
   name: "Depop Calculator",
-  description: "Free Depop calculator to estimate fees, profits, and shipping costs. Updated for 2024 with accurate fee calculations for sellers.",
+  description: "Free Depop calculator to estimate fees, profits, and shipping costs. Updated for 2024 with accurate fee calculations, multi-currency support, and detailed profit breakdowns for Depop sellers worldwide.",
   keywords: [
     "depop calculator",
     "depop fee calculator 2024",

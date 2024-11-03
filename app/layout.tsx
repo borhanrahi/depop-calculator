@@ -4,7 +4,13 @@ import { Inter } from "next/font/google";
 import { siteConfig } from './metadata';
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// Optimize font loading
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',  // Add font-display swap
+  preload: true,    // Preload the font
+  adjustFontFallback: true  // Automatically adjust the font fallback
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -16,6 +22,13 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
   icons: {
     icon: '/favicon.png'
+  },
+  // Add preconnect and dns-prefetch
+  other: {
+    link: [
+      'preconnect https://fonts.googleapis.com',
+      'dns-prefetch https://fonts.googleapis.com'
+    ]
   },
   openGraph: {
     type: "website",
@@ -54,9 +67,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={inter.className}>
+    <html lang="en" className={inter.className}>
+      <head>
+        {/* Add preload for critical resources */}
+        <link 
+          rel="preload" 
+          href="/favicon.png" 
+          as="image"
+        />
+      </head>
       <body>
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

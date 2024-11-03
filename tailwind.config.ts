@@ -7,6 +7,17 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      './pages/**/*.{js,ts,jsx,tsx}',
+      './components/**/*.{js,ts,jsx,tsx}',
+      './app/**/*.{js,ts,jsx,tsx}',
+    ],
+    options: {
+      safelist: ['dark'],
+    },
+  },
   theme: {
   	extend: {
   		colors: {
