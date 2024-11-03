@@ -31,6 +31,9 @@ export const jsonLd = {
   faq: {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "headline": "Depop Calculator FAQ - Fees & Profit Calculations",
+    "description": "Comprehensive answers about Depop fees, profit calculations, shipping costs, and payment processing for sellers in 2024.",
+    "dateModified": "2024-09-01",
     "mainEntity": [
       {
         "@type": "Question",
