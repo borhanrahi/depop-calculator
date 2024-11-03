@@ -34,10 +34,18 @@ export const jsonLd = {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do you calculate Depop fees?",
+        "name": "How do you calculate Depop fees in 2024?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our calculator uses Depop's standard fees: 10% platform fee plus payment processing fees (3.3% + $0.45 for Depop Payments)."
+          "text": "Depop charges a 10% platform fee on the total amount (including shipping) plus payment processing fees of 3.3% + $0.45 when using Depop Payments. Our calculator automatically factors in all these fees to show your exact earnings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the profit margin calculation for Depop sales?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Profit margin is calculated by subtracting all costs (item cost, shipping, platform fees, and payment fees) from your sale price, then dividing by the sale price and multiplying by 100. Our calculator shows this automatically."
         }
       },
       {
@@ -46,6 +54,30 @@ export const jsonLd = {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Listing on Depop is free, but there's a 10% fee on sales plus payment processing fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Depop's payment processing fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depop charges 3.3% + $0.45 for payment processing on each transaction when using Depop Payments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate profit on Depop?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate profit, subtract all fees (10% platform fee + 3.3% + $0.45 payment processing) and your costs (item cost + shipping) from the sale price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Depop charge fees on shipping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Depop's 10% fee applies to both the item price and shipping cost."
         }
       }
     ]

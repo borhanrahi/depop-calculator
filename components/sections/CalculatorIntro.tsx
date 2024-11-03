@@ -23,17 +23,17 @@ export default function CalculatorIntro() {
         <div className="space-y-8">
           {/* Main Calculator Section */}
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-3xl font-bold text-foreground">
               Depop Fee Calculator 2024
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Looking to understand your profits and fees on Depop? Our <strong>Depop Fee Calculator</strong> is the perfect tool to quickly estimate your earnings after fees, shipping, and other costs. Whether you`&apos;re a regular Depop seller or just getting started, this calculator will help you maximize profits on each sale by clearly showing all associated costs.
+            <p className="text-foreground/80 leading-relaxed">
+              Looking to understand your profits and fees on Depop? Our <strong>Depop Fee Calculator</strong> is the perfect tool to quickly estimate your earnings after fees, shipping, and other costs. Whether you&apos;re a regular Depop seller or just getting started, this calculator will help you maximize profits on each sale by clearly showing all associated costs.
             </p>
           </div>
 
           {/* How to Use Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold">
+            <h3 className="text-xl font-semibold text-foreground">
               How to Use the Depop Fees Calculator
             </h3>
             <ul className="space-y-3 list-none">
@@ -48,7 +48,7 @@ export default function CalculatorIntro() {
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm">
                     {index + 1}
                   </span>
-                  <span className="text-muted-foreground">{step}</span>
+                  <span className="text-foreground/80">{step}</span>
                 </li>
               ))}
             </ul>
@@ -56,28 +56,28 @@ export default function CalculatorIntro() {
 
           {/* Profit Calculator Section */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-3xl font-bold text-foreground">
               Depop Profit Calculator
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-foreground/80 leading-relaxed">
               For anyone aiming to make a profit on Depop, knowing your costs and fees is crucial. Use our <strong>Depop Profit Calculator</strong> to see your net earnings, profit margins, and item markup. Enter your sale price, shipping costs, and any additional fees to get a detailed breakdown of your earnings after all Depop fees are deducted.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Our <strong>Depop Calculator</strong> is tailored for 2024, ensuring that the latest Depop fees and options are accounted for. Plan your sales better and increase your profits by knowing exactly what you`&apos;ll earn with each sale.
+            <p className="text-foreground/80 leading-relaxed">
+              Our <strong>Depop Calculator</strong> is tailored for 2024, ensuring that the latest Depop fees and options are accounted for. Plan your sales better and increase your profits by knowing exactly what you&apos;ll earn with each sale.
             </p>
           </div>
 
           {/* Benefits Section */}
           <div className="bg-muted rounded-lg p-6">
-            <h3 className="text-lg font-semibold mb-4">
+            <h3 className="text-lg font-semibold text-foreground mb-4">
               Why Use Our Depop Calculator?
             </h3>
             <ul className="space-y-2">
-              <li className="text-muted-foreground">✓ Updated with 2024 Depop fees</li>
-              <li className="text-muted-foreground">✓ Accurate profit calculations</li>
-              <li className="text-muted-foreground">✓ Includes all Depop and payment processing fees</li>
-              <li className="text-muted-foreground">✓ Free to use</li>
-              <li className="text-muted-foreground">✓ Instant results</li>
+              <li className="text-foreground/80">✓ Updated with 2024 Depop fees</li>
+              <li className="text-foreground/80">✓ Accurate profit calculations</li>
+              <li className="text-foreground/80">✓ Includes all Depop and payment processing fees</li>
+              <li className="text-foreground/80">✓ Free to use</li>
+              <li className="text-foreground/80">✓ Instant results</li>
             </ul>
           </div>
         </div>
