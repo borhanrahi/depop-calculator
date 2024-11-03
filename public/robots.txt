@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://depop-calculator.vercel.app/sitemap.xml
+
+# Common crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
