@@ -21,17 +21,18 @@ export default function FeeStructure() {
                 Platform fees vary by region as of March 2024:
               </p>
               <ul className="space-y-2 text-sm">
+
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-primary rounded-full" />
-                  <span>EUR: 10% of total transaction amount</span>
+                  <span>USA: No platform fee</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-primary rounded-full" />
-                  <span>USD: No platform fee</span>
+                  <span>UK: No platform fee</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-primary rounded-full" />
-                  <span>GBP: No platform fee</span>
+                  <span>Europe: 10% of total transaction amount</span>
                 </li>
                 <li className="flex items-center gap-2 text-muted-foreground text-xs mt-2">
                   <span className="w-2 h-2 bg-primary/50 rounded-full" />

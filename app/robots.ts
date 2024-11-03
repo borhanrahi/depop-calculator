@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://depop-calculator.vercel.app/sitemap.xml',
+    sitemap: 'https://depopcalculator.top/sitemap.xml',
   }
 } 

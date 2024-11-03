@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://depop-calculator.vercel.app/sitemap.xml
+Sitemap: https://depopcalculator.top/sitemap.xml
 
 # Common crawlers
 User-agent: Googlebot
