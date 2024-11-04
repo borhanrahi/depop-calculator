@@ -42,7 +42,6 @@ interface CalculatorFormProps {
   paymentMethod: "depop" | "paypal";
   setPaymentMethod: (value: "depop" | "paypal") => void;
 }
-
 const CalculatorForm: React.FC<CalculatorFormProps> = ({
   currency,
   setCurrency,
@@ -312,3 +311,4 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
 };
 
 export default CalculatorForm;
+

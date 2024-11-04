@@ -23,6 +23,7 @@ export default function Footer() {
             <Link 
               href="https://x.com/borhan_rahi"
               target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -34,6 +35,7 @@ export default function Footer() {
             <Link 
               href="https://www.linkedin.com/in/borhanrahi/"
               target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
             >
               <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -45,6 +47,7 @@ export default function Footer() {
             <Link 
               href="https://github.com/borhanrahi"
               target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -4,10 +4,11 @@ export const siteConfig = {
   description: "Free Depop calculator to estimate fees, profits, and shipping costs. Updated for 2024 with accurate fee calculations, multi-currency support, and detailed profit breakdowns for Depop sellers worldwide.",
   keywords: [
     "depop calculator",
+    "depop fee calculator 2025",
     "depop fee calculator 2024",
-    "depop fees calculator",
-    "depop profit calculator",
-    "depop shipping calculator",
+    "Depop Profit Calculator",
+    "Depop Fees Calculator",
+    "Depop Shipping Costs",
     "depop seller calculator",
     "depop payment calculator",
     "depop sales calculator"
@@ -20,8 +21,8 @@ export const jsonLd = {
     "@type": "SoftwareApplication",
     "name": "Depop Calculator",
     "applicationCategory": "BusinessApplication",
-    "description": "Free Depop calculator to estimate fees, profits, and shipping costs. Most accurate Depop fee calculator updated for 2024.",
-    "keywords": "depop calculator, depop fee calculator 2024, depop fees calculator, depop profit calculator",
+    "description": "Free Depop calculator to estimate fees, profits, and shipping costs. Most accurate Depop fee calculator updated for 2025.",
+    "keywords": "depop calculator, depop fee calculator 2025, Depop Profit Calculator, Depop Fees Calculator, Depop Shipping Costs",
     "offers": {
       "@type": "Offer",
       "price": "0",
