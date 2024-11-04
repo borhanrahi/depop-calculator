@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import Navigation from "@/components/NavBar";
 import { ThemeProvider } from "@/components/providers/theme-provider"
+import Script from 'next/script'
+import CookieConsent from '@/components/CookieConsent';
+import DeferredScript from '@/components/DeferredScript';
 
 // Optimize font loading
 const inter = Inter({ 
@@ -78,10 +81,36 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1047850381013366"
-          crossOrigin="anonymous"
+        <link 
+          rel="preconnect" 
+          href="https://pagead2.googlesyndication.com" 
+        />
+        <link 
+          rel="dns-prefetch" 
+          href="https://www.googletagmanager.com" 
+        />
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                page_path: window.location.pathname,
+                cookie_flags: 'SameSite=None;Secure'
+              });
+            `,
+          }}
+        />
+        <DeferredScript 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          strategy="lazy"
         />
       </head>
       <body className={inter.className}>
@@ -95,6 +124,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <Analytics />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

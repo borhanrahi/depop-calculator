@@ -11,12 +11,13 @@ const nextConfig: NextConfig = {
     path: '/_next/image',
     loader: 'default',
     disableStaticImages: false,
-    dangerouslyAllowSVG: false,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     contentDispositionType: 'inline',
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'depopcalculator.top',
+        hostname: '**',
         pathname: '/**',
       },
     ],

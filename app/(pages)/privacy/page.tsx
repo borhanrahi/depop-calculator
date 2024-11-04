@@ -27,13 +27,13 @@ export default function PrivacyPage() {
             <Separator className="my-6" />
 
             <h2 className="text-2xl font-semibold mt-6 mb-4">2. Use of Cookies</h2>
-            <p>We use cookies to enhance your experience on our website. These cookies are used to:</p>
+            <p>We use first-party cookies to enhance your experience on our website. These cookies are used to:</p>
             <ul className="list-disc pl-5 mt-2">
               <li>Remember your preferences</li>
               <li>Provide analytics about site usage</li>
               <li>Improve the overall user experience</li>
             </ul>
-            <p>You can control and/or delete cookies as you wish. For details, see aboutcookies.org.</p>
+            <p>You can control cookie preferences through your browser settings. For more information about cookies, visit aboutcookies.org.</p>
 
             <Separator className="my-6" />
 
