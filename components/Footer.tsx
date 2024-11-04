@@ -4,19 +4,22 @@ export default function Footer() {
   return (
     <footer className="w-full py-6 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-col items-center md:items-start space-y-1">
-            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-              <span className="inline-flex items-center">
-                <span className="mr-1">©</span> {new Date().getFullYear()} Borhan Uddin
-              </span>
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-500">
-              Crafted with passion. All rights reserved.
-            </p>
+        <div className="flex flex-col space-y-6">
+          {/* Legal Links */}
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+            <Link href="/about" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              About
+            </Link>
+            <Link href="/privacy" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              Terms & Conditions
+            </Link>
           </div>
-          
-          <div className="flex items-center gap-6">
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-6">
             <Link 
               href="https://x.com/borhan_rahi"
               target="_blank"
@@ -49,6 +52,18 @@ export default function Footer() {
               </svg>
               <span className="text-sm font-medium">GitHub</span>
             </Link>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              <span className="inline-flex items-center">
+                 {new Date().getFullYear()} <span className="mr-1">©</span> Borhan Uddin
+              </span>
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+             All rights reserved by Depop Calculator.
+            </p>
           </div>
         </div>
       </div>

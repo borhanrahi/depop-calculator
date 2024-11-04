@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import { siteConfig } from './metadata';
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import Navigation from "@/components/NavBar";
+import { ThemeProvider } from "@/components/providers/theme-provider"
 
 // Optimize font loading
 const inter = Inter({ 
@@ -74,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script 
           async 
@@ -82,10 +84,18 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-screen bg-background">
-        {children}
-        <Footer />
-        <Analytics />
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navigation />
+          {children}
+          <Footer />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );
