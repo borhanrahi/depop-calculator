@@ -32,6 +32,7 @@ export default function Home() {
       {/* Calculator Section */}
       <section className="py-8 px-4 sm:px-6 lg:px-8">
         <DepopCalculator />
+
       </section>
 
       {/* Ad Banner */}

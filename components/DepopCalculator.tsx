@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import CalculatorForm from "./CalculatorForm";
+import CalculatorForm from "@/components/calculator/CalculatorForm";
 import ResultsTable from "./ResultsTable";
 import { Button } from "@/components/ui/button";
 import { calculateFees } from "../utils/calculations";
