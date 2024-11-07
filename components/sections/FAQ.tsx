@@ -1,11 +1,23 @@
-import { jsonLd } from '@/app/metadata'
+import { cn } from "@/lib/utils";
 
-export default function FAQ() {
-  const faqs = jsonLd.faq.mainEntity;
-  
+interface FAQProps {
+  title: string;
+  description?: string;
+  faqs: {
+    id: string;
+    question: string;
+    answer: string;
+  }[];
+  className?: string;
+}
+
+export default function FAQ({ title, description, faqs, className }: FAQProps) {
   return (
     <section 
-      className="py-16 px-4 sm:px-6 lg:px-8 max-w-[900px] mx-auto"
+      className={cn(
+        "py-16 px-4 sm:px-6 lg:px-8 max-w-[900px] mx-auto",
+        className
+      )}
       aria-labelledby="faq-heading"
     >
       <div className="text-center mb-12">
@@ -13,13 +25,14 @@ export default function FAQ() {
           id="faq-heading"
           className="text-3xl font-bold mb-4 text-foreground"
         >
-          Depop Calculator FAQ
+          {title}
         </h2>
         
-        <p className="text-foreground/80 max-w-2xl mx-auto">
-          Get answers to common questions about Depop fees, profit calculations, 
-          and selling costs. Updated for 2024 with the latest fee structures and rates.
-        </p>
+        {description && (
+          <p className="text-foreground/80 max-w-2xl mx-auto">
+            {description}
+          </p>
+        )}
       </div>
 
       <div 
@@ -27,10 +40,12 @@ export default function FAQ() {
         itemScope 
         itemType="https://schema.org/FAQPage"
       >
-        {faqs.map((faq, index) => (
+        {faqs.map((faq) => (
           <article 
-            key={index}
-            className="rounded-lg border bg-card text-card-foreground p-6 hover:shadow-md transition-shadow"
+            key={faq.id}
+            className="rounded-lg border bg-card text-card-foreground p-6 
+              hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 ease-in-out
+              cursor-pointer"
             itemScope 
             itemProp="mainEntity"
             itemType="https://schema.org/Question"
@@ -39,7 +54,7 @@ export default function FAQ() {
               className="text-lg font-semibold mb-3 text-foreground"
               itemProp="name"
             >
-              {faq.name}
+              {faq.question}
             </h3>
             <div 
               itemScope 
@@ -51,7 +66,7 @@ export default function FAQ() {
                 className="text-foreground/80 leading-relaxed"
                 itemProp="text"
               >
-                {faq.acceptedAnswer.text}
+                {faq.answer}
               </div>
             </div>
           </article>

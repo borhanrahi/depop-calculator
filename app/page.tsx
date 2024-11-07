@@ -6,6 +6,7 @@ import AdBanner from "@/components/ads/AdBanner";
 import CalculatorIntro from "@/components/sections/CalculatorIntro";
 import { jsonLd } from './metadata';
 import { Metadata } from 'next';
+import { mainPageFaqs } from './data/faq-data';
 
 export const metadata: Metadata = {
   other: {
@@ -48,7 +49,11 @@ export default function Home() {
       <AdBanner className="py-6" />
 
       {/* FAQ Section */}
-      <FAQ />
+      <FAQ 
+        title={mainPageFaqs.title}
+        description={mainPageFaqs.description}
+        faqs={mainPageFaqs.faqs}
+      />
       <CalculatorIntro/>
     </main>
   );
