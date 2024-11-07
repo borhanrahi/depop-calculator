@@ -26,8 +26,8 @@ async function getPost(slug: string) {
 }
 
 export async function generateMetadata({ params }: PostParams): Promise<Metadata> {
-  const resolvedParams = await params;
-  const post = await getPost(resolvedParams.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
   
   if (!post) {
     return {
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PostParams): Promise<Metadata
     description: post.excerpt,
     keywords: post.keywords,
     alternates: {
-      canonical: `${baseUrl}/blog/${resolvedParams.slug}`,
+      canonical: `${baseUrl}/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
@@ -64,16 +64,15 @@ function formatDate(date: string) {
   });
 }
 
-type PostParams = {
-  params: {
-    slug: string;
-  };
-};
+type Params = Promise<{ slug: string }>;
 
+interface PostParams {
+  params: Params;
+}
 
-export default async function BlogPost({ params }: PostParams) {
-  const resolvedParams = await params;
-  const post = await getPost(resolvedParams.slug);
+export default async function BlogPost({ params }: PostParams): Promise<JSX.Element> {
+  const { slug } = await params;
+  const post = await getPost(slug);
   
   if (!post) {
     notFound();
