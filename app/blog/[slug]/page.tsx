@@ -1,222 +1,183 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
-import { CalendarDays } from 'lucide-react'
-import { format } from 'date-fns'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
 import '@/app/styles/prose.css'
+import dynamic from 'next/dynamic'
 
 import { posts } from '../content'
 import PostSidebar from '@/components/post-sidebar'
-import FAQ from '@/components/sections/FAQ';
+import RelatedPosts from '@/components/blog/RelatedPosts'
 
-// Update the params type definition
-type Params = Promise<{ slug: string }>
+const BlogContent = dynamic(
+  () => import('@/components/blog/blog-content'),
+  { loading: () => <div>Loading...</div> }
+)
 
-// Update the getPost function to handle Promise params
-async function getPost(params: Params) {
-  const resolvedParams = await params
-  if (!resolvedParams.slug) return null
-  return posts.find(post => post.slug === decodeURIComponent(resolvedParams.slug))
+async function getPost(slug: string) {
+  try {
+    const post = posts.find(post => post.slug === decodeURIComponent(slug));
+    if (!post) return null;
+    return post;
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    return null;
+  }
 }
 
-// Function to get related posts (excluding the current post)
-function getRelatedPosts(currentPostId: string) {
-  return posts.filter(post => post.id !== currentPostId).slice(0, 3)
-}
-
-// Generate metadata for the page
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const post = await getPost(params)
+export async function generateMetadata({ params }: PostParams): Promise<Metadata> {
+  const resolvedParams = await params;
+  const post = await getPost(resolvedParams.slug);
   
   if (!post) {
     return {
       title: 'Post Not Found',
       description: 'The requested post could not be found'
-    }
+    };
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://depopcalculator.top';
+  const ogImage = post.coverImage.startsWith('http') 
+    ? post.coverImage 
+    : `${baseUrl}${post.coverImage}`;
 
   return {
-    title: post.title,
+    title: `${post.title} | Depop Calculator`,
     description: post.excerpt,
     keywords: post.keywords,
     alternates: {
-      canonical: `https://depopcalculator.top/blog/${post.slug}`,
-    },
-    robots: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      canonical: `${baseUrl}/blog/${resolvedParams.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      type: 'article',
-      publishedTime: post.date,
-      modifiedTime: post.lastModified,
-      authors: [post.author],
-      images: [
-        {
-          url: post.coverImage,
-          width: 1200,
-          height: 630,
-          alt: post.title
-        }
-      ],
-      tags: post.keywords,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: [post.coverImage],
-    },
-  }
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+    }
+  };
 }
 
-export default async function BlogPost({ params }: { params: Params }) {
-  const post = await getPost(params)
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+type PostParams = {
+  params: {
+    slug: string;
+  };
+};
+
+
+export default async function BlogPost({ params }: PostParams) {
+  const resolvedParams = await params;
+  const post = await getPost(resolvedParams.slug);
   
   if (!post) {
-    notFound()
+    notFound();
   }
 
-  const relatedPosts = getRelatedPosts(post.id)
-  const canonicalUrl = `https://depopcalculator.top/blog/${post.slug}`
-
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://depopcalculator.top';
+  
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
     "image": [
-      new URL(post.coverImage, 'https://depopcalculator.top').toString()
+      post.coverImage.startsWith('http') 
+        ? post.coverImage 
+        : `${baseUrl}${post.coverImage}`
     ],
     "datePublished": post.date,
     "dateModified": post.lastModified || post.date,
     "author": [{
       "@type": "Person",
       "name": post.author,
-      "url": `https://depopcalculator.top/authors/${post.authorSlug}`
+      "url": `${baseUrl}/authors/${post.authorSlug}`
     }],
     "publisher": {
       "@type": "Organization",
-      "name": "Your Blog Name",
+      "name": "Depop Calculator",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://depopcalculator.top/logo.png"
+        "url": `${baseUrl}/logo.png`
       }
     },
     "description": post.excerpt,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": canonicalUrl
+      "@id": `${baseUrl}/blog/${post.slug}`
     }
-  }
+  };
 
   return (
-    <>
+    <article className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <Script
         id="json-ld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <article className="mb-16">
-          <header className="mb-8">
-            <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-              {post.title}
-            </h1>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span className="font-medium">{post.author}</span>
-              <span>•</span>
-              <div className="flex items-center gap-1">
-                <CalendarDays className="h-4 w-4" />
-                <time dateTime={post.date}>
-                  {format(new Date(post.date), 'MMMM d, yyyy')}
+      
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <main className="lg:col-span-8">
+          <div className="prose prose-lg max-w-none">
+            {/* Header */}
+            <header className="mb-8">
+              <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+              <div className="flex items-center gap-4 text-muted-foreground">
+                <time dateTime={post.date} suppressHydrationWarning>
+                  {formatDate(post.date)}
                 </time>
+                <span>•</span>
+                <span>{post.author}</span>
               </div>
-            </div>
-          </header>
+            </header>
 
-          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-foreground">
-              Home
-            </Link>
-            <span>/</span>
-            <Link href="/blog" className="hover:text-foreground">
-              Blog
-            </Link>
-            <span>/</span>
-            <span className="text-foreground">{post.title}</span>
-          </nav>
+            {/* Cover Image */}
+            {post.coverImage && (
+              <div className="mb-8">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  width={1200}
+                  height={630}
+                  className="rounded-lg"
+                  priority
+                />
+              </div>
+            )}
 
-          <div className="relative mb-8 aspect-[2/1] overflow-hidden rounded-lg">
-            <Image
-              src={post.coverImage}
-              alt={post.title}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
+            {/* Blog Content */}
+            <BlogContent content={post.content} />
 
-          <div className="lg:flex lg:gap-8">
-            <div className="w-full lg:flex-1">
-              <div 
-                className="blog-content"
-                dangerouslySetInnerHTML={{ __html: post.content }} 
-              />
-              
-              {post.faqs && post.faqs.length > 0 && (
-                <div className="mt-12 border-t pt-8">
-                  <FAQ 
-                    title="Frequently Asked Questions"
-                    faqs={post.faqs}
-                    className="p-0"
-                  />
+            {/* FAQs Section */}
+            {post.faqs && post.faqs.length > 0 && (
+              <section className="mt-12 border-t pt-8">
+                <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+                <div className="space-y-6">
+                  {post.faqs.map((faq) => (
+                    <div key={faq.id} className="space-y-2">
+                      <h3 className="text-xl font-semibold">{faq.question}</h3>
+                      <p className="text-muted-foreground">{faq.answer}</p>
+                    </div>
+                  ))}
                 </div>
-              )}
-            </div>
-            <div className="mt-8 lg:mt-0">
-              <PostSidebar />
-            </div>
+              </section>
+            )}
           </div>
-        </article>
+        </main>
 
-        <section>
-          <h2 className="mb-8 text-2xl font-bold">Related Posts</h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedPosts.map((relatedPost) => (
-              <Link
-                key={relatedPost.id}
-                href={`/blog/${relatedPost.slug}`}
-                className="group block"
-              >
-                <div className="relative mb-4 aspect-[3/2] overflow-hidden rounded-lg">
-                  <Image
-                    src={relatedPost.coverImage}
-                    alt={relatedPost.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-                <h3 className="mb-2 text-lg font-semibold group-hover:text-primary">
-                  {relatedPost.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {relatedPost.excerpt}
-                </p>
-              </Link>
-            ))}
+        <aside className="lg:col-span-4">
+          <div className="sticky top-8">
+            <PostSidebar />
           </div>
-        </section>
+        </aside>
       </div>
-    </>
-  )
+
+      {/* Related Posts */}
+      <RelatedPosts currentPostId={post.id} />
+    </article>
+  );
 }

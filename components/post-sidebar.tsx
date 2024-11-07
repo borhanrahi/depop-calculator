@@ -71,8 +71,8 @@ export default function PostSidebar() {
   )
 
   return (
-    <div className="w-full lg:w-64 lg:flex-shrink-0">
-      <div className="mx-auto max-w-[400px] lg:max-w-none lg:sticky lg:top-4 space-y-4">
+    <div className="w-full lg:w-64 lg:flex-shrink-0  pt-10">
+      <div className="mx-auto max-w-[400px] lg:max-w-none lg:sticky lg:top-24 space-y-4">
         <div className="rounded-lg border bg-card shadow-sm">
           <button 
             onClick={toggleExpand}
@@ -110,7 +110,6 @@ export default function PostSidebar() {
         </div>
         
         <AdBlock />
-        {/* <AdBlock /> */}
       </div>
     </div>
   )
