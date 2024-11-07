@@ -11,9 +11,12 @@ import { posts } from '../content'
 import PostSidebar from '@/components/post-sidebar'
 import FAQ from '@/components/sections/FAQ';
 
-// Function to get post by slug - updated with error handling
-async function getPost(params: Promise<{ slug: string }> | { slug: string }) {
-  const resolvedParams = await Promise.resolve(params)
+// Update the params type definition
+type Params = Promise<{ slug: string }>
+
+// Update the getPost function to handle Promise params
+async function getPost(params: Params) {
+  const resolvedParams = await params
   if (!resolvedParams.slug) return null
   return posts.find(post => post.slug === decodeURIComponent(resolvedParams.slug))
 }
@@ -24,7 +27,7 @@ function getRelatedPosts(currentPostId: string) {
 }
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> | { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const post = await getPost(params)
   
   if (!post) {
@@ -40,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: post.excerpt,
     keywords: post.keywords,
     alternates: {
-      canonical: `https://yourdomain.com/blog/${post.slug}`,
+      canonical: `https://depopcalculator.top/blog/${post.slug}`,
     },
     robots: {
       index: true,
@@ -75,7 +78,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ slug: string }> | { slug: string } }) {
+export default async function BlogPost({ params }: { params: Params }) {
   const post = await getPost(params)
   
   if (!post) {
@@ -83,28 +86,28 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   }
 
   const relatedPosts = getRelatedPosts(post.id)
-  const canonicalUrl = `https://yourdomain.com/blog/${post.slug}`
+  const canonicalUrl = `https://depopcalculator.top/blog/${post.slug}`
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
     "image": [
-      new URL(post.coverImage, 'https://yourdomain.com').toString()
+      new URL(post.coverImage, 'https://depopcalculator.top').toString()
     ],
     "datePublished": post.date,
     "dateModified": post.lastModified || post.date,
     "author": [{
       "@type": "Person",
       "name": post.author,
-      "url": `https://yourdomain.com/authors/${post.authorSlug}`
+      "url": `https://depopcalculator.top/authors/${post.authorSlug}`
     }],
     "publisher": {
       "@type": "Organization",
       "name": "Your Blog Name",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://yourdomain.com/logo.png"
+        "url": "https://depopcalculator.top/logo.png"
       }
     },
     "description": post.excerpt,
