@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Script from 'next/script'
 import '@/app/styles/prose.css'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 import { posts } from '../content'
 import PostSidebar from '@/components/post-sidebar'
@@ -125,13 +126,46 @@ export default async function BlogPost({ params }: PostParams): Promise<JSX.Elem
             {/* Header */}
             <header className="mb-8">
               <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-              <div className="flex items-center gap-4 text-muted-foreground">
+              
+              {/* Date and Author */}
+              <div className="flex items-center gap-4 text-muted-foreground mb-4">
                 <time dateTime={post.date} suppressHydrationWarning>
                   {formatDate(post.date)}
                 </time>
                 <span>•</span>
                 <span>{post.author}</span>
               </div>
+
+              {/* Breadcrumbs with light/dark mode styling */}
+              <nav aria-label="Breadcrumb" className="text-sm py-2 border-t border-b border-gray-200 dark:border-gray-700 my-4">
+                <ol className="flex items-center space-x-2">
+                  <li>
+                    <Link 
+                      href="/" 
+                      className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <span className="mx-2 text-gray-400 dark:text-gray-500">›</span>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/blog" 
+                      className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <span className="mx-2 text-gray-400 dark:text-gray-500">›</span>
+                  </li>
+                  <li className="truncate">
+                    <span className="text-gray-900 dark:text-gray-100">{post.title}</span>
+                  </li>
+                </ol>
+              </nav>
             </header>
 
             {/* Cover Image */}
@@ -177,6 +211,31 @@ export default async function BlogPost({ params }: PostParams): Promise<JSX.Elem
 
       {/* Related Posts */}
       <RelatedPosts currentPostId={post.id} />
+
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
+        <ol className="flex items-center space-x-2">
+          <li>
+            <Link href="/" className="hover:text-primary transition-colors">
+              Home
+            </Link>
+          </li>
+          <li>
+            <span className="mx-2">›</span>
+          </li>
+          <li>
+            <Link href="/blog" className="hover:text-primary transition-colors">
+              Blog
+            </Link>
+          </li>
+          <li>
+            <span className="mx-2">›</span>
+          </li>
+          <li className="truncate">
+            <span className="text-primary">{post.title}</span>
+          </li>
+        </ol>
+      </nav>
     </article>
   );
 }
