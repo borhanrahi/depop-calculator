@@ -47,3 +47,14 @@
 .blog-content div.my-8 {
   margin: 2rem 0;
 }
+
+/* Add these styles to your existing prose.css */
+.prose a {
+  @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  @apply text-blue-800 dark:text-blue-300;
+}

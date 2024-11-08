@@ -211,31 +211,6 @@ export default async function BlogPost({ params }: PostParams): Promise<JSX.Elem
 
       {/* Related Posts */}
       <RelatedPosts currentPostId={post.id} />
-
-      {/* Breadcrumbs */}
-      <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-        <ol className="flex items-center space-x-2">
-          <li>
-            <Link href="/" className="hover:text-primary transition-colors">
-              Home
-            </Link>
-          </li>
-          <li>
-            <span className="mx-2">›</span>
-          </li>
-          <li>
-            <Link href="/blog" className="hover:text-primary transition-colors">
-              Blog
-            </Link>
-          </li>
-          <li>
-            <span className="mx-2">›</span>
-          </li>
-          <li className="truncate">
-            <span className="text-primary">{post.title}</span>
-          </li>
-        </ol>
-      </nav>
     </article>
   );
 }

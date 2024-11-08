@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex justify-center gap-6">
             <Link 
-              href="https://x.com/borhan_rahi"
+              href="hhttps://x.com/borhandev"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -65,7 +65,7 @@ export default function Footer() {
               </span>
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-             All rights reserved by Depop Calculator.
+              All rights reserved by <Link href="https://depopcalculator.top" className="hover:text-gray-900 dark:hover:text-white transition-colors">Depop Calculator</Link>.
             </p>
           </div>
         </div>
