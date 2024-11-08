@@ -3,17 +3,29 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ModeToggle } from "@/components/mode-toggle"
+import Image from 'next/image'
+
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+
+
+  const logoSrc = '/logo-light.png'
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-xl font-bold text-primary dark:text-white">
-              Depop Calculator
+            <Link href="/" className="relative h-8 w-48">
+              <Image
+                src={logoSrc}
+                alt="Depop Calculator"
+                fill
+                className="object-contain"
+                priority
+              />
             </Link>
           </div>
           
@@ -91,10 +103,16 @@ export default function Navigation() {
             <div className="flex justify-between items-center">
               <Link 
                 href="/" 
-                className="text-xl font-bold text-primary dark:text-white"
+                className="relative h-8 w-48"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Depop Calculator
+                <Image
+                  src={logoSrc}
+                  alt="Depop Calculator"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </Link>
               <button
                 onClick={() => setIsMenuOpen(false)}

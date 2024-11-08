@@ -30,12 +30,15 @@ export default function BlogPage() {
             href={`/blog/${post.slug}`}
             className="group rounded-lg border bg-card transition-colors hover:bg-accent"
           >
-            <div className="aspect-[3/2] relative">
+            <div className="relative aspect-[16/9]">
               <Image
                 src={post.coverImage}
                 alt={post.title}
-                fill
-                className="rounded-t-lg object-cover"
+                width={800}
+                height={450}
+                className="rounded-lg object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                quality={85}
               />
             </div>
             <div className="p-4">
