@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.lastModified || post.date,
     changeFrequency: 'monthly' as const,
-    priority: 0.7
+    priority: 1
   }));
 
   // Your existing static routes
