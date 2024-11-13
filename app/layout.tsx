@@ -20,10 +20,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Depop Calculator | Free Depop Profit Calculator 2025",
-  description: "Calculate Depop fees, profits, and shipping costs instantly with our free calculator. Updated for 2025 with accurate fee calculations and multi-currency support for sellers.",
+  description: "Free Depop Calculator helps sellers maximize earnings. Use our updated Depop Fee Calculator and Depop Profit Calculator to instantly estimate fees, profits, and costs for 2025.",
   openGraph: {
     title: "Depop Calculator 2025",
-    description: "Calculate Depop fees, profits, and shipping costs instantly with our free calculator. Updated for 2025 with accurate fee calculations and multi-currency support for sellers.",
+    description: "Free Depop Calculator helps sellers maximize earnings. Use our updated Depop Fee Calculator and Depop Profit Calculator to instantly estimate fees, profits, and costs for 2025.",
     url: siteConfig.url,
     siteName: "Depop Calculator",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Depop Calculator 2025",
-    description: "Calculate Depop fees, profits, and shipping costs instantly with our free calculator. Updated for 2025 with accurate fee calculations and multi-currency support for sellers.",
+    description: "Free Depop Calculator helps sellers maximize earnings. Use our updated Depop Fee Calculator and Depop Profit Calculator to instantly estimate fees, profits, and costs for 2025.",
     images: ["/opengraph-image"],
   },
   metadataBase: new URL(siteConfig.url),
