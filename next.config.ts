@@ -81,11 +81,11 @@ const nextConfig: NextConfig = {
             },
             lib: {
               test: /[\\/]node_modules[\\/]/,
-              name(module: any) {
-                const packageName = module.context.match(
+              name(module: { context: string }) {
+                const match = module.context.match(
                   /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                )[1];
-                return `npm.${packageName.replace('@', '')}`;
+                );
+                return `vendors/${match?.[1]?.replace('@', '').replace(/[\\/]/, '_') || 'unknown'}`;
               },
               priority: 10,
               minChunks: 1,
