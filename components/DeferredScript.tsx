@@ -22,7 +22,11 @@ export default function DeferredScript({ src, strategy = 'defer' }: DeferredScri
       });
 
       observer.observe(document.documentElement);
-      return () => observer.disconnect();
+
+      return () => {
+        observer.disconnect();
+        window.removeEventListener('beforeunload', () => {});
+      };
     }
   }, [strategy]);
 
@@ -33,6 +37,8 @@ export default function DeferredScript({ src, strategy = 'defer' }: DeferredScri
       src={src}
       defer={strategy === 'defer'}
       async={strategy === 'lazy'}
+      crossOrigin="anonymous"
+      referrerPolicy="no-referrer-when-downgrade"
     />
   );
 }

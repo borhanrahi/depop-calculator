@@ -75,7 +75,7 @@ export default function ResultsTable({ results, currency }: ResultsTableProps) {
 
           {/* Fees Section */}
           <div className='space-y-2'>
-            <h4 className='text-sm font-medium text-muted-foreground'>Platform Fees</h4>
+            <h3 className='text-sm font-medium text-muted-foreground'>Platform Fees</h3>
             <div className='space-y-1'>
               <div className='flex justify-between items-center py-1'>
                 <span>Depop Fee {currency === "EUR" ? "(10%)" : "(0%)"}</span>

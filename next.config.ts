@@ -44,6 +44,15 @@ const nextConfig: NextConfig = {
           }
         ],
       },
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Permissions-Policy',
+            value: 'unload=()',
+          },
+        ],
+      },
     ];
   },
   // Add webpack optimization

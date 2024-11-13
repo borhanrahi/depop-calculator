@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider"
 import Script from 'next/script'
 import CookieConsent from '@/components/CookieConsent';
 import DeferredScript from '@/components/DeferredScript';
+import { cn } from "@/lib/utils";
 
 // Optimize font loading
 const inter = Inter({ 
@@ -119,11 +120,26 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           strategy="lazy"
         />
+        <link 
+          rel="preload" 
+          href="/fonts/your-font.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous" 
+        />
+        <link 
+          rel="preconnect" 
+          href="https://fonts.gstatic.com" 
+          crossOrigin="anonymous" 
+        />
       </head>
-      <body className={inter.className}>
+      <body className={cn(
+        "min-h-screen bg-background font-sans antialiased",
+        inter.className
+      )}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

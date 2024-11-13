@@ -28,7 +28,7 @@ export default function CookieConsent() {
           <p className="text-sm text-muted-foreground">
             We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
             <a href="/privacy" className="underline ml-1">
-              Learn more
+              Privacy Policy
             </a>
           </p>
           <div className="flex gap-2">
