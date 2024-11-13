@@ -3,7 +3,7 @@ import { Info, Calculator, TrendingUp } from "lucide-react";
 export default function AboutSection() {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-[1200px] mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-12">About The Calculator</h2>
+      <h2 className="text-3xl font-bold text-center mb-12">About The Depop Calculator</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">

@@ -24,7 +24,7 @@ export default function CalculatorIntro() {
           {/* Main Calculator Section */}
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-foreground">
-              Depop Fee Calculator 2024
+              Depop Fee Calculator 2025
             </h2>
             <p className="text-foreground/80 leading-relaxed">
               Looking to understand your profits and fees on Depop? Our <strong>Depop Fee Calculator</strong> is the perfect tool to quickly estimate your earnings after fees, shipping, and other costs. Whether you&apos;re a regular Depop seller or just getting started, this calculator will help you maximize profits on each sale by clearly showing all associated costs.
@@ -63,7 +63,7 @@ export default function CalculatorIntro() {
               For anyone aiming to make a profit on Depop, knowing your costs and fees is crucial. Use our <strong>Depop Profit Calculator</strong> to see your net earnings, profit margins, and item markup. Enter your sale price, shipping costs, and any additional fees to get a detailed breakdown of your earnings after all Depop fees are deducted.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              Our <strong>Depop Calculator</strong> is tailored for 2024, ensuring that the latest Depop fees and options are accounted for. Plan your sales better and increase your profits by knowing exactly what you&apos;ll earn with each sale.
+              Our <strong>Depop Calculator</strong> is tailored for 2025, ensuring that the latest Depop fees and options are accounted for. Plan your sales better and increase your profits by knowing exactly what you&apos;ll earn with each sale.
             </p>
           </div>
 

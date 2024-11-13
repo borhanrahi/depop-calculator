@@ -84,11 +84,11 @@ export default function DepopCalculator() {
         <div className='flex items-center justify-center gap-2 mb-2'>
           <Flag className='w-8 h-8' />
           <CardTitle className='text-3xl sm:text-4xl font-bold'>
-            Calculate Your Depop Profit
+            Depop ProfitCalculator
           </CardTitle>
         </div>
         <CardDescription className='text-primary-foreground/60'>
-          Up-to-date as of as of November 02, 2024
+          Orr Depop Calculator Up-to-date as of as of November 12, 2024
         </CardDescription>
       </CardHeader>
       <CardContent className='space-y-6 p-6'>
@@ -124,7 +124,7 @@ export default function DepopCalculator() {
           Reset calculator
         </Button>
         <div className='text-center text-sm text-muted-foreground'>
-          <p>Calculation not correct? Request new features?</p>
+          <p>Depop Calculator: Calculation not correct? Request new features?</p>
           <Button
             variant='link'
             className='text-sm text-primary hover:text-primary/80'

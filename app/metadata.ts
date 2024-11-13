@@ -21,7 +21,7 @@ export const jsonLd = {
     "@type": "SoftwareApplication",
     "name": "Depop Calculator",
     "applicationCategory": "BusinessApplication",
-    "description": "Free Depop calculator to estimate fees, profits, and shipping costs. Most accurate Depop fee calculator updated for 2025.",
+    "description": "Free Depop Calculator helps sellers maximize earnings. Use our updated Depop Fee Calculator and Depop Profit Calculator to instantly estimate fees, profits, and costs for 2025.",
     "keywords": "depop calculator, depop fee calculator 2025, Depop Profit Calculator, Depop Fees Calculator, Depop Shipping Costs",
     "offers": {
       "@type": "Offer",
@@ -38,7 +38,7 @@ export const jsonLd = {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do you calculate Depop fees in 2024?",
+        "name": "How do you calculate Depop fees in 2025?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Depop charges a 10% platform fee on the total amount (including shipping) plus payment processing fees of 3.3% + $0.45 when using Depop Payments. Our calculator automatically factors in all these fees to show your exact earnings."
