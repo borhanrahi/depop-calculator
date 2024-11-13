@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 
 interface DeferredScriptProps {
   src: string;
-  strategy?: 'defer' | 'lazy';
+  strategy?: 'defer' | 'lazy' | 'idle';
+  priority?: 'high' | 'low';
 }
 
-export default function DeferredScript({ src, strategy = 'defer' }: DeferredScriptProps) {
+export default function DeferredScript({ src, strategy = 'defer', priority = 'low' }: DeferredScriptProps) {
   const [shouldLoad, setShouldLoad] = useState(strategy === 'defer');
 
   useEffect(() => {
@@ -22,11 +23,19 @@ export default function DeferredScript({ src, strategy = 'defer' }: DeferredScri
       });
 
       observer.observe(document.documentElement);
+      return () => observer.disconnect();
+    }
 
-      return () => {
-        observer.disconnect();
-        window.removeEventListener('beforeunload', () => {});
+    if (strategy === 'idle') {
+      const loadScript = () => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(() => setShouldLoad(true));
+        } else {
+          setTimeout(() => setShouldLoad(true), 1000);
+        }
       };
+
+      loadScript();
     }
   }, [strategy]);
 
@@ -36,9 +45,8 @@ export default function DeferredScript({ src, strategy = 'defer' }: DeferredScri
     <script
       src={src}
       defer={strategy === 'defer'}
-      async={strategy === 'lazy'}
-      crossOrigin="anonymous"
-      referrerPolicy="no-referrer-when-downgrade"
+      async={priority === 'low'}
+      data-priority={priority}
     />
   );
 }

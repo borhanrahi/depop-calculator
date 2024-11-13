@@ -1,15 +1,11 @@
 "use client";
 
-interface AdBannerProps {
-  className?: string;
-}
+import AdLoader from './AdLoader';
 
-export default function AdBanner({ className }: AdBannerProps) {
+export default function AdBanner({ className }: { className?: string }) {
   return (
-    <div className={`max-w-[1200px] mx-auto ${className}`}>
-      <div className="bg-muted/30 rounded-lg p-4 text-center min-h-[120px] flex items-center justify-center">
-        <p className="text-muted-foreground">Advertisement Space</p>
-      </div>
+    <div className={className}>
+      <AdLoader />
     </div>
   );
 }
