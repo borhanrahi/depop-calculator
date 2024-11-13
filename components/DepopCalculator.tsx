@@ -84,7 +84,7 @@ export default function DepopCalculator() {
         <div className='flex items-center justify-center gap-2 mb-2'>
           <Flag className='w-8 h-8' />
           <CardTitle className='text-3xl sm:text-4xl font-bold'>
-            Depop ProfitCalculator
+           Free Depop Profit Calculator
           </CardTitle>
         </div>
         <CardDescription className='text-primary-foreground/60'>
