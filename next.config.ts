@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [16, 32, 48, 64, 96],
-    domains: ['depopcalculator.top'],
     path: '/_next/image',
     loader: 'default',
     disableStaticImages: false,
@@ -57,34 +56,46 @@ const nextConfig: NextConfig = {
   },
   // Add webpack optimization
   webpack: (config, { dev, isServer }) => {
-    // Optimize chunks
     if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        minSize: 20000,
-        maxSize: 244000,
-        cacheGroups: {
-          default: false,
-          vendors: false,
-          commons: {
-            name: 'commons',
-            chunks: 'all',
-            minChunks: 2,
-          },
-          shared: {
-            name: 'shared',
-            enforce: true,
-            reuseExistingChunk: true,
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          minSize: 10000,
+          maxSize: 200000,
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            framework: {
+              name: 'framework',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+              priority: 40,
+              enforce: true,
+            },
+            commons: {
+              name: 'commons',
+              chunks: 'all',
+              minChunks: 2,
+              priority: 20
+            },
+            lib: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module: any) {
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                )[1];
+                return `npm.${packageName.replace('@', '')}`;
+              },
+              priority: 10,
+              minChunks: 1,
+              reuseExistingChunk: true
+            }
           }
-        }
+        },
+        moduleIds: 'deterministic'
       };
     }
-    // Add module concatenation
-    config.optimization.concatenateModules = true;
-    
-    // Enable module scope hoisting
-    config.optimization.moduleIds = 'deterministic';
-    
     return config;
   }
 };
