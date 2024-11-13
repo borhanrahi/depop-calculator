@@ -42,7 +42,7 @@ export default function Home() {
       </section>
 
       {/* Ad Banner */}
-      <AdBanner className="py-6" />
+      {/* <AdBanner className="py-6" /> */}
 
       {/* About Section */}
       <AboutSection />
