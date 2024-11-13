@@ -2,7 +2,7 @@ import DepopCalculator from "@/components/DepopCalculator";
 import AboutSection from "@/components/sections/AboutSection";
 import FeeStructure from "@/components/sections/FeeStructure";
 import FAQ from "@/components/sections/FAQ";
-import AdBanner from "@/components/ads/AdBanner";
+// import AdBanner from "@/components/ads/AdBanner";
 import CalculatorIntro from "@/components/sections/CalculatorIntro";
 import { jsonLd } from './metadata';
 import { Metadata } from 'next';
@@ -51,7 +51,7 @@ export default function Home() {
       <FeeStructure />
 
       {/* Second Ad Banner */}
-      <AdBanner className="py-6" />
+      {/* <AdBanner /> */}
 
       {/* FAQ Section */}
       <FAQ 
