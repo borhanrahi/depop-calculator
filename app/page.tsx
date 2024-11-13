@@ -23,7 +23,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 text-center space-y-4">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-          Free Depop Calculator
+          Depop Calculator 2025
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Free calculator to estimate Depop fees, profits, and shipping costs instantly across multiple currencies
