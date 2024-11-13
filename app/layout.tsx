@@ -121,13 +121,6 @@ export default function RootLayout({
           strategy="lazy"
         />
         <link 
-          rel="preload" 
-          href="/fonts/your-font.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="anonymous" 
-        />
-        <link 
           rel="preconnect" 
           href="https://fonts.gstatic.com" 
           crossOrigin="anonymous" 
