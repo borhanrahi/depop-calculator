@@ -28,8 +28,9 @@ const nextConfig: NextConfig = {
   experimental: {
     serverActions: {
       allowedOrigins: ["*"]  // Or specify your allowed origins
-    },
+    }
   },
+  optimizeFonts: true,
   // Optimize third-party scripts
   async headers() {
     return [
@@ -69,6 +70,12 @@ const nextConfig: NextConfig = {
         }
       };
     }
+    // Add module concatenation
+    config.optimization.concatenateModules = true;
+    
+    // Enable module scope hoisting
+    config.optimization.moduleIds = 'deterministic';
+    
     return config;
   }
 };
