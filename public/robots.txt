@@ -8,10 +8,6 @@ Allow: /privacy
 Allow: /terms
 Allow: /contact
 Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /*.json$
-Disallow: /*.js$
 
 # Host
 Host: https://depopcalculator.top
@@ -25,11 +21,10 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 2
+
 
 # Prevent media scraping
 User-agent: Twitterbot
