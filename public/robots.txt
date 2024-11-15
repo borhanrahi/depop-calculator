@@ -1,13 +1,41 @@
+# Global rules
 User-agent: *
 Allow: /
+Allow: /calculator
+Allow: /blog
+Allow: /about
+Allow: /privacy
+Allow: /terms
+Allow: /contact
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /*.json$
+Disallow: /*.js$
+
+# Host
+Host: https://depopcalculator.top
+
+# Sitemaps
 Sitemap: https://depopcalculator.top/sitemap.xml
 
-# Common crawlers
+# Search engine specific rules
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 2
+
+# Prevent media scraping
+User-agent: Twitterbot
+Disallow: /images/
+Disallow: /static/images/
+
+User-agent: facebookexternalhit
+Disallow: /images/
+Disallow: /static/images/

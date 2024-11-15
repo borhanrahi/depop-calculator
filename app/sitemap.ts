@@ -17,14 +17,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
+      changeFrequency: 'daily' as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/calculator`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      priority: 1,
     },
     {
       url: `${baseUrl}/blog`,  // Add the blog index page
