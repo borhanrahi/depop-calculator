@@ -1,6 +1,6 @@
 # Depop Fee Calculator
 
-[Depop Calculator](https://depopcalculator.top/).  a modern web application built with Next.js that helps Depop sellers calculate fees, profits, and costs across multiple currencies (USD, EUR, GBP).
+[Depop Calculator](https://depopcalculator.top/) is a modern web application built with Next.js that helps Depop sellers calculate fees, profits, and costs across multiple currencies (USD, EUR, GBP).
 
 ## Features
 
